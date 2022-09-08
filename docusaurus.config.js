@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Suberra',
   tagline: 'Accept Payments from Anyone for Anything.',
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'https://suberra.github.io',
   baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
@@ -16,7 +16,7 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'suberraprotocol', // Usually your GitHub org/user name.
+  organizationName: 'suberra', // Usually your GitHub org/user name.
   projectName: 'suberra-docs', // Usually your repo name.
 
   // Even if you don't use internalization, you can use this field to set useful
