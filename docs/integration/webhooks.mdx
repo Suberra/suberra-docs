@@ -1,0 +1,74 @@
+---
+title: Webhooks
+description: "Webhooks"
+---
+
+## What are Webhooks?
+
+Webhooks are a lightweight one-way communication medium for Suberra to inform merchants of actions taken by their subscribers - such as when there is a new subscriber or when there is a lapse in payments.
+They allow merchants to handle payment events without having to constantly poll an endpoint.
+
+## Subscriber Lifecycle
+
+### New Subscriber
+Fired when a user subscribes to a plan or undos their cancellation.
+
+```json
+{
+    "id": "8d309b28-d8c4-4684-9e80-6056d57e61b6", // UUID
+    "event": "NewSubscriber",
+    "timestamp": 1633513173, // epoch time
+    "txhash": "53a19fb483b17358bea358ffc772b03164be1c44384e4a3ef0cd13568f7a202c",
+    "subscription_contract": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174", // Your NFT Subscription Contract address
+    "product_id": "fd56f0d4-66b9-4779-9de0-2874346802b1", // uuid of product in our backend
+    "chain_id": "137", // chainid of evm networks
+    "chain_name": "polygon", // see https://github.com/DefiLlama/chainlist/blob/main/constants/chainIds.js
+    "data": {
+        "user_address": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174", // EOA address
+	"email": "abc@suberra.io", // User's email address, will be null if doesn't exist 
+        "tokenAddress" : "0x2791bca1f2de4661ed88a30c99a7a9449aa84174", // USDC's contract address
+        "denom": "usdc",
+        "amount" : 10.00 // aka $10 USDC
+    }
+}
+
+// re-subscribes aka undo cancellation 
+{
+  "id": "8d309b28-d8c4-4684-9e80-6056d57e61b6",
+  "event": "NewSubscriber",
+  "timestamp": 1643908174245,
+  "txhash": "53a19fb483b17358bea358ffc772b03164be1c44384e4a3ef0cd13568f7a202c",
+  "subscription_contract": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",  // Your NFT Subscription Contract address
+  "product_id": "fd56f0d4-66b9-4779-9de0-2874346802b1", //uuid of product in our backend
+  "chain_id": "137", // chainid of evm networks
+  "chain_name": "polygon", // see https://github.com/DefiLlama/chainlist/blob/main/constants/chainIds.js
+  "data": {
+    "user_address": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+    "email": "abc@suberra.io",
+    "additional_info": "undo_cancellation"
+    // no token information because there was no charge
+  }
+}
+```
+
+### SubscriberRemoved
+
+Fired when a subscriber is removed.
+
+```
+{
+   "id":"8d309b28-d8c4-4684-9e80-6056d57e61b6",
+   "event":"SubscriberRemoved",
+   "timestamp":1633513173,
+   "txhash": "53a19fb483b17358bea358ffc772b03164be1c44384e4a3ef0cd13568f7a202c",
+   "subscription_contract":"0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+   "product_id": "fd56f0d4-66b9-4779-9de0-2874346802b1", // uuid of product in our backend
+   "chain_id": "137", // chainid of evm networks
+   "chain_name": "polygon", // see https://github.com/DefiLlama/chainlist/blob/main/constants/chainIds.js
+   "data":{
+      "user_address":"0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+      "email": "abc@suberra.io",
+   }
+}
+```
+
