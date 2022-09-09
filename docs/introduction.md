@@ -1,12 +1,10 @@
 ---
 title: Introduction
 slug: /
-hide_title: true
 sidebar_position: 1
 description: "Introduction"
 ---
 
-# Introduction
 Suberra is a payments gateway that allow businesses to accept payments from Anywhere for Anything.
 
 ## Accept crypto payments from any user

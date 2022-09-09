@@ -2,7 +2,7 @@
 // Note: type annotations allow type checking and IDEs autocompletion
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const darkCodeTheme = require('prism-react-renderer/themes/github');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -37,7 +37,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/suberra/suberra-docs',
         },
         blog: false,
         theme: {
@@ -65,35 +65,37 @@ const config = {
             position: 'left',
             label: 'Docs',
           },
+          // {
+          //   label: 'Guides',
+          //   position: 'left',
+          //   to: '/guides',
+          //   activeBasePath: '/guides'
+          // },
           {
-            href: 'https://github.com/suberraprotocol',
+            href: 'https://github.com/suberra',
             label: 'GitHub',
             position: 'right',
           },
           {
             href: 'https://twitter.com/SuberraProtocol',
-            className: 'navbar-item-twitter',
+            label: 'Twitter',
             position: 'right',
+          },
+          {
+            type: "search",
+            position: "right",
           },
         ],
       },
       footer: {
-        style: 'dark',
+        style: 'light',
         links: [
           {
             title: 'Community',
             items: [
-              // {
-              //   label: 'Stack Overflow',
-              //   href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              // },
-              // {
-              //   label: 'Discord',
-              //   href: 'https://discordapp.com/invite/docusaurus',
-              // },
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
+                href: 'https://twitter.com/suberraprotocol',
               },
             ],
           },
@@ -102,7 +104,7 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/suberra/suberra-docs',
               },
             ],
           },
