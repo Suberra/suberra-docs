@@ -19,19 +19,37 @@ const sidebars = {
     'introduction',
     {
       type: 'category',
-      label: 'Integration',
+      label: 'Overview',
+      link: { type: 'doc', id: 'overview/what_is_suberra' },
       items: [
-        'integration/getting_started',
-        'integration/webhooks',
+        'overview/what_is_suberra',
+        'overview/use_cases',
       ]
     },
     {
       type: 'category',
       label: 'Payments',
+      link: { type: 'doc', id: 'payments/overview' },
       items: [
         'payments/overview',
-        'payments/subscriptions',
-        'payments/subscription_nft',
+        'payments/payment_link',
+      ]
+    },
+    {
+      type: 'category',
+      label: 'Subscriptions',
+      link: { type: 'doc', id: 'subscriptions/subscriptions' },
+      items: [
+        'subscriptions/subscriptions',
+        'subscriptions/subscription_nft',
+      ]
+    },
+    {
+      type: 'category',
+      label: 'Integration',
+      items: [
+        'integration/getting_started',
+        'integration/webhooks',
       ]
     },
     {

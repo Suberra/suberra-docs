@@ -1,0 +1,10 @@
+---
+title: Periodic Allowances
+description: "Periodic allowances"
+---
+
+Suberra builds a new smart contract layer called _periodic allowance_, which allows a payer to grant a spender the ability to spend an amount per unit interval (e.g. 50 USDC per month).
+
+Currently, existing standards on ERC-20 only allows for one-time approval for a finite amount or unlimited amount. Let's say that if you are giving authorisation to a merchant to pull 50 USDC from your account every month, you will either have to approve it every month or give the merchant an unlimited (or extremely large amount of one-time approvals). This is not that great for the payer as the merchant can draw money than what the payer is intending to.
+
+Suberra protects payers by allowing them to control how much merchants can draw from their account per unit amount of time. Using t
