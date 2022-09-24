@@ -72,3 +72,24 @@ Fired when a subscriber is removed.
 }
 ```
 
+### SubscriberCancelled
+
+Fired when a subscriber unsubscribes on their own accord.
+
+```json
+{
+   "id":"8d309b28-d8c4-4684-9e80-6056d57e61b6",
+   "event":"SubscriberCancelled",
+   "timestamp":1633513173,
+   "txhash":"53a19fb483b17358bea358ffc772b03164be1c44384e4a3ef0cd13568f7a202c",
+   "subscription_contract":"0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+   "product_id": "fd56f0d4-66b9-4779-9de0-2874346802b1", // uuid of product in our backend
+   "chain_id": "137", // chainid of evm networks
+   "chain_name": "polygon", // see https://github.com/DefiLlama/chainlist/blob/main/constants/chainIds.js
+   "data":{
+      "user_address":"0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+      "email": "abc@suberra.io",
+   }
+}
+
+```

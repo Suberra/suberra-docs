@@ -78,7 +78,7 @@ const config = {
           },
           {
             href: 'https://twitter.com/SuberraProtocol',
-            label: 'Twitter',
+            className: 'navbar-item-twitter',
             position: 'right',
           },
           {
