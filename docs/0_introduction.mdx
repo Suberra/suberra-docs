@@ -1,0 +1,48 @@
+---
+title: Introduction
+slug: /
+sidebar_position: 1
+description: "Introduction"
+---
+
+import Image1 from "@site/static/content/what_is_suberra.png";
+
+---
+
+Suberra is a payments gateway that allow businesses to accept payments from Anywhere for Anything.
+
+<div style={{ flexBasis: "300px", flexGrow: "1", textAlign: "center" }}>
+  <img src={Image1} style={{ alignSelf: "center", maxWidth: "100%" }} />
+</div>
+
+## Accept crypto payments from any user
+
+By integrating with Suberra once, you can accept payments from most popular wallets on any network. You can also integrate with centralised exchanges such as Binance Pay and FTX and allow users to pay you crypto payments directly from those platforms.
+
+## Accept crypto payments for anything
+
+You can use Suberra to accept payments for anything. Some examples are:
+
+- Tickets and merchandise: Accept crypto payments for your conference tickets
+- SaaS-based subscription: Collecting a fixed monthly fee for access to your platform.
+- Pay-as-you-go Subscription: Ideal for services that have a usage based pricing.
+
+## Features at a glance
+
+import Cards from "@site/src/components/Cards";
+const MyItems = [
+  {
+    title: "Gasless Transactions",
+    description: "Suberra allows you to pay gas on behalf of your users",
+    route: "/docs/overview/use_cases",
+  },
+  {
+    title: "Subscriptions",
+    description:
+      "Suberra allows you to accept recurring subscriptions on a weekly, monthly or yearly basis. We automate the charges so you don't have to.",
+    route: "/docs/subscriptions/subscriptions",
+  },
+];
+
+<Cards cards={MyItems} />
+

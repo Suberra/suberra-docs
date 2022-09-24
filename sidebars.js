@@ -50,6 +50,7 @@ const sidebars = {
       items: [
         'integration/getting_started',
         'integration/webhooks',
+        'integration/sdk',
       ]
     },
     {

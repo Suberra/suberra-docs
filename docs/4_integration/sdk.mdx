@@ -1,0 +1,51 @@
+---
+title: Javascript SDK
+description: "Javascript SDK"
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+
+# Install
+
+Install Suberra's Javascript SDK in your project root directory
+<Tabs>
+  <TabItem value="yarn" label="yarn" default>
+
+
+    yarn add @suberra/suberra.js 
+
+
+  </TabItem>
+  <TabItem value="npm" label="npm">
+
+    npm install @suberra/suberra.js 
+
+  </TabItem>
+</Tabs>
+
+## Importing
+
+```javascript
+import { SuberraCore, SuberraProduct } from '@suberra/suberra.js';
+```
+
+### Suberra Core
+
+Suberra core contains the common methods for suberra products. You can instantiate a Core instance by:
+```javascript
+const SuberraCore = new SuberraCore(jsonRpcProvider, ethCallProvider, periodicAllowanceContract, initialised);
+```
+
+
+
+### Suberra Product
+
+Suberra product contains the methods for a specific product. You can instantiate a Product instance by:
+```
+const SuberraProduct = new SuberraProduct(ethCallProvider, subscriptionContract);
+```
+
+
+
