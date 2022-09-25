@@ -16,12 +16,12 @@ const sidebars = {
 
   // we do not need the preceding "1_" because docusaurus automatically strips it away
   docs: [
-    'introduction',
     {
       type: 'category',
       label: 'Overview',
       link: { type: 'doc', id: 'overview/what_is_suberra' },
       items: [
+        'overview/introduction',
         'overview/what_is_suberra',
         'overview/periodic_allowance',
         'overview/use_cases',
