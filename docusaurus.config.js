@@ -9,7 +9,7 @@ const config = {
   title: 'Suberra',
   tagline: 'Accept Payments from Anyone for Anything.',
   url: 'https://suberra.github.io',
-  baseUrl: '/',
+  baseUrl: '/suberra-docs/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
