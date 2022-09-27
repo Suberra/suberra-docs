@@ -1,10 +1,82 @@
 ---
 title: Periodic Allowances
 description: "Periodic allowances"
+slug: /periodic-allowances
 ---
 
-Suberra builds a new smart contract layer called _periodic allowance_, which allows a payer to grant a spender the ability to spend an amount per unit interval (e.g. 50 USDC per month).
+import Image1 from "@site/static/content/periodic_allowance.png";
 
-Currently, existing standards on ERC-20 only allows for one-time approval for a finite amount or unlimited amount. Let's say that if you are giving authorisation to a merchant to pull 50 USDC from your account every month, you will either have to approve it every month or give the merchant an unlimited (or extremely large amount of one-time approvals). This is not that great for the payer as the merchant can draw money than what the payer is intending to.
+---
 
-Suberra protects payers by allowing them to control how much merchants can draw from their account per unit amount of time. Using t
+Most dApps requires users to grant an allowance to spend tokens for it to work. For example, if you are trying to trade on Uniswap, Uniswap will require you to approve Uniswap contracts to spend tokens on your behalf. This is done by calling the `approve` function on the token contract. The `approve` function takes two arguments, the address of the spender and the amount of tokens to be approved. The spender is the address of the contract that will be spending the tokens on your behalf. The amount is the maximum amount of tokens that can be spent by the spender. The `approve` function is a one-time function, meaning that you can only call it once. If you want to change the amount of tokens that can be spent by the spender, you will have to call the `approve` function again with the new amount.
+
+This is a security feature to prevent dApps from stealing your tokens. However, it is a very inconvenient UX for users. Users have to approve the dApp every time they want to use it.
+
+For programs that is designed to repeat the same action over time, many developers chose to request for a large (or unlimited) approval from the user. This is a bad practice because it is a security risk. If the developer is malicious or if the dApp is compromised, then the funds in the users wallets can be drained completely.
+
+## Periodic allowances
+
+<div style={{ flexBasis: "300px", flexGrow: "1", textAlign: "center" }}>
+  <img src={Image1} style={{ alignSelf: "center", maxWidth: "100%" }} />
+</div>
+
+Suberra protects users by building another layer of stricter contraints on EIP-20 allowances. These constraints restricts the amount of tokens that can be spent by the dApp. This is done by setting a maximum allowance that can be spent in a period of time (e.g. 50 USDC per month). Once the smart contract use up the allowance for the given period of time, it can no longer spend any tokens from the user's wallet. This periodic allowance is reset the next unit interval.
+
+## Technical Specifications
+
+### `approve`
+
+```
+function approve(
+        address token,
+        address spender,
+        uint192 amount,
+        uint64 duration,
+        uint64 startTime
+    )
+```
+
+### `permit`
+
+Supports EIP-20 approvals ("permits") via EIP-712 secp256k1 signatures
+
+````
+    function permit(
+        address owner,
+        address token,
+        address spender,
+        uint192 amount,
+        uint64 duration,
+        uint64 startTime,
+        uint256 deadline,
+        uint8 v,
+        bytes32 r,
+        bytes32 s
+    )
+    ```
+````
+
+### `transferFrom`
+
+Transfer the underlying token from owner to recipient. Owner should have given approved the periodic allowance contract to spend tokens on his behalf for the designated token. 
+
+```
+    function transferFrom(
+        address token,
+        address owner,
+        address recipient,
+        uint192 amount
+    ) 
+```
+
+### `allowanceInfo`
+
+Gets the current allowance information given the owner, token and spender.
+
+```
+  function allowanceInfo(
+        address owner,
+        address token,
+        address spender
+    )
+```

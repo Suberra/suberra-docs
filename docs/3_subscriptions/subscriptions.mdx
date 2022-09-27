@@ -3,17 +3,71 @@ title: Subscriptions
 description: "Subscriptions"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+With Subscriptions, customers can make recurring payments for access to your product or services.
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import Image1 from "@site/static/content/Subscriptions.png";
+import Image2 from "@site/static/content/subscribe_lifecycle.png";
+import Image3 from "@site/static/content/subscribe_renewal.png";
+
+## Supports any kind of business model
+
+:::note
+
+Usage-based and Per-Seat Subscriptions will be available in Q1 2023. Sign up for early access [here](https://suberra.typeform.com/to/kIIAJN2P?typeform-source=ywsman08ybv.typeform.com)
+
+::::
+
+<div style={{ flexBasis: "300px", flexGrow: "1", textAlign: "center" }}>
+  <img src={Image1} style={{ alignSelf: "center", maxWidth: "60%" }} />
+</div>
+
+Suberra handles three kinds of subscription payments
 
 <Tabs>
-  <TabItem value="apple" label="Apple" default>
-    This is an apple 🍎
+  <TabItem value="fixed" label="Fixed Fee" default>
+    Access to all kinds of features for a single monthly or annual price.
+    Suitable for most research platforms, entertainment tools, and software
+    services for individuals.
   </TabItem>
-  <TabItem value="orange" label="Orange">
-    This is an orange 🍊
+  <TabItem value="usage-based" label="Usage-Based">
+    Charges based on the customer's usage (e.g. $5 per GB storage used).
+    Suitable for cloud instrastructure and computing services.
   </TabItem>
-  <TabItem value="banana" label="Banana">
-    This is a banana 🍌
+  <TabItem value="per-seat" label="Per Seat">
+    Charges based on number of seats (e.g. $8 per user). Suitable for enterprise
+    productivity products.
   </TabItem>
 </Tabs>
+
+## Subscription Lifecycle
+
+### Subscribe
+
+<div style={{ flexBasis: "300px", flexGrow: "1", textAlign: "center" }}>
+  <img src={Image2} style={{ alignSelf: "center", maxWidth: "100%" }} />
+</div>
+
+### Renewal
+
+Subscription renewals are handled automatically by Suberra. Suberra currently uses Gelato to automate on-chain recurring subscriptions. Here's what happens during renewal.
+
+<div style={{ flexBasis: "300px", flexGrow: "1", textAlign: "center" }}>
+  <img src={Image3} style={{ alignSelf: "center", maxWidth: "100%" }} />
+</div>
+
+1. When the product is due for renewal, we attempt a charge on the time that the product expire.
+2. If the charge is successful, the product is renewed for another period. The customer's product subscription is extended for another billing cycle and service continues as usual without interruption.
+
+If the charge is unsuccessful,
+
+1. If the product has grace period, customer's subscription will fall within the grace period. Most businesses will continue to give users access to the product while sending reminders to the customer to ensure that their account is funded before the next payment retry.
+2. If the product does not have grace period, the product will be suspended. The customer will not be able to access the product. Once cancelled, customer would have to resubscribe to get access to the product again.
+
+### Grace Period
+
+Grace Period can be set by the business. By default, we configure a 7 days grace period for each monthly product subscription. During these 7 days grace period, customers can still access to the product while Suberra attempts to retry the charges.
+Suberra's smart payment retries first check if the user has sufficient token balance on-chain before attempting a charge. We attempt the charges frequently over the grace period.
+
+During each charge failure attempt, Suberra can execute custom actions such as sending emails to customer to remind them to ensure that their account is funded if they wish to access the product. Suberra can also send out custom webhooks to the business for them to follow-up by themselves.

@@ -14,11 +14,15 @@ Suberra can integrate alongside existing webapps and allow businesses to collect
 </div>
 
 Here's a brief explanation of what's happening at each step:
+
 1. The user can click "Crypto", and the webpage will route the user to the payments collection page. Suberra provides a hosted checkout page, so merchants can simply redirect users to that checkout page.
 2. The user will sign two transactions. The first one permits our contract to spend the USDC in their wallet, and the second transaction authorises Suberra to deduct up to a set amount from their wallet.
 3. Once successful, Suberra can trigger success calls. For example, if the user is subscribing to a product and paying monthly, a Subscription NFT can be minted, and a receipt can be sent.
 
 We support the following payment methods:
 
-- Subscriptions
-- One-time payment
+|                    | Payment Link      | Checkout                               | Subscription                                      | Custom                |
+| ------------------ | ----------------- | -------------------------------------- | ------------------------------------------------- | --------------------- |
+| Type               | One-time          | One-time                               | Recurring                                         | One-time or Recurring |
+| Integration effort | No Code           | Minimal                                | Minimal to No-code (depends on integration)       | Most coding           |
+| Use-cases          | Commerce, Tickets | Commerce, Platforms, Game Marketplaces | SaaS, cloud infrastructure, in-game access passes | Platforms or Games |

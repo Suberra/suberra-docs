@@ -1,0 +1,165 @@
+---
+title: Javascript SDK
+description: "Javascript SDK"
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+# Install
+
+Install Suberra's Javascript SDK in your project root directory
+
+<Tabs>
+  <TabItem value="yarn" label="yarn" default>
+
+```bash
+yarn add @suberra/suberra.js
+```
+  </TabItem>
+  <TabItem value="npm" label="npm">
+
+```shell
+npm install @suberra/suberra.js
+```
+  
+  </TabItem>
+</Tabs>
+
+## Importing
+
+```javascript
+import { SuberraCore, SuberraProduct } from "@suberra/suberra.js";
+```
+
+### Suberra Core
+
+Suberra core contains the common methods for suberra products. You can instantiate a Core instance by:
+
+```javascript
+const SuberraCore = new SuberraCore(
+  jsonRpcProvider,
+  ethCallProvider,
+  periodicAllowanceContract,
+  initialised
+);
+```
+
+#### Approve spending by periodic allowance proxy
+
+Method that approves the spending of the specified ERC-20 token.
+
+```javascript
+async approveUnlimitedTokenSpend(token: string): Promise<void>
+```
+
+#### Check for proxy's approval
+
+Method that returns a Boolean representing whether the periodic allowance contract's unlimited token spending has been approved.
+
+```javascript
+async hasApprovedTokenSpend(
+    token: string,
+    amount: ethers.BigNumber
+  ): Promise<boolean>
+```
+
+#### Approve spending by Suberra product
+
+Method that approves the spending of the specified ERC-20 token on the product.
+
+```javascript
+async approvePeriodicTokenSpendOnProduct(
+    token: string,
+    amount: ethers.BigNumber,
+    startTime: number,
+    secondsPerPeriod: number
+  ): Promise<void>
+```
+
+#### Check for product's approval
+
+Method that returns a Boolean representing whether the Suberra product's unlimited token spending has been approved.
+
+```javascript
+async approvePeriodicTokenSpendOnProduct(
+    token: string,
+    amount: ethers.BigNumber,
+    startTime: number,
+    secondsPerPeriod: number
+  ): Promise<void>
+```
+
+### Suberra Product
+
+Suberra product contains the methods for a specific product. You can instantiate a Product instance by:
+
+```javascript
+const SuberraProduct = new SuberraProduct(
+  ethCallProvider,
+  subscriptionContract
+);
+```
+
+#### Query account existence
+
+Method that returns a Boolean value representing whether a user has a valid subscription at the time of query.
+
+```javascript
+async hasValidSubscription(address: string): Promise<boolean>
+```
+
+#### Query subscription validity based on TokenID
+
+Method that returns a Boolean representing whether a user's specific subscription is valid at the time of query.
+
+```javascript
+async isValidSubscription(tokenId: number): Promise<boolean>
+```
+
+#### Query URI of a subscription token
+
+Method utilises the [ERC721-Standard](https://eips.ethereum.org/EIPS/eip-721) metadata extension 'tokenURI' function to return the passed in subscription token's URI, in encoded JSON format.
+
+```javascript
+async getTokenURI(tokenId: number): Promise<string>
+```
+
+#### Query Owner of a subscription token
+
+Method utilises the ERC721-Standard 'ownerOf' function to return the address of the owner of the passed in tokenId.
+
+```javascript
+async getOwnerOf(tokenId: number): Promise<string>
+```
+
+#### Query expiration of a subscription
+
+Method utilises the `\_tokenInfo`` function of our subscription product contract to return the time of expiry of the passed in token id in unix time.
+
+```javascript
+async getExpiryOfNft(tokenId: number): PromiseQuery subscription balance of a user
+```
+
+#### Query `tokenId` of user subscription
+
+This can be done using two methods in conjunction, utilising the ERC721-Standard functions `balanceOf` and `tokenOfOwnerByIndex` respectively.
+
+```javascript
+async getBalanceOf(address: string): Promise<number>
+```
+
+```javascript
+async getTokenByIndex(address: string, index: number): Promise<number>
+```
+
+For example, these methods can be used to achieve the desired behaviour as such:
+
+```javascript
+const balanceOf = await product.getBalanceOf(account);
+if (balanceOf > 0) {
+  const tokenId = await product.getTokenByIndex(account, balanceOf - 1); // balanceOf passed in as index
+  const uri = await product.getTokenURI(tokenId);
+  setTokenId(tokenId);
+}
+```
