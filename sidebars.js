@@ -13,56 +13,49 @@
 
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
-
   // we do not need the preceding "1_" because docusaurus automatically strips it away
   docs: [
+    "README",
     {
-      type: 'category',
-      label: 'Overview',
-      link: { type: 'doc', id: 'overview/what_is_suberra' },
+      type: "category",
+      label: "Overview",
       items: [
-        'overview/introduction',
-        'overview/what_is_suberra',
-        'overview/periodic_allowance',
-        'overview/use_cases',
-      ]
+        "overview/what_is_suberra",
+        "overview/suberra_for_merchants",
+        "overview/how_suberra_works",
+        "overview/use_cases",
+      ],
     },
     {
-      type: 'category',
-      label: 'Payments',
-      link: { type: 'doc', id: 'payments/overview' },
-      items: [
-        'payments/overview',
-        'payments/payment_link',
-      ]
+      type: "category",
+      label: "Payments",
+      items: ["payments/overview", "payments/payment_link"],
     },
     {
-      type: 'category',
-      label: 'Subscriptions',
-      link: { type: 'doc', id: 'subscriptions/subscriptions' },
-      items: [
-        'subscriptions/subscriptions',
-        'subscriptions/subscription_nft',
-      ]
+      type: "category",
+      label: "Subscriptions",
+      items: ["subscriptions/subscriptions", "subscriptions/subscription_nft"],
     },
     {
-      type: 'category',
-      label: 'Integration',
+      type: "category",
+      label: "Integration",
       items: [
-        'integration/getting_started',
-        'integration/webhooks',
-        'integration/sdk',
-      ]
+        "integration/getting_started",
+        "integration/webhooks",
+        "integration/sdk",
+      ],
     },
     {
-      type: 'category',
-      label: 'Legal',
-      items: [
-        'legal/cookie_policy',
-        'legal/terms_and_conditions',
-      ]
-    }
-  ]
+      type: "category",
+      label: "Legal",
+      items: ["legal/cookie_policy", "legal/terms_and_conditions"],
+    },
+    {
+      type: "category",
+      label: "Guides",
+      items: ["guides/subscriber_only"],
+    },
+  ],
   // But you can create a sidebar manually
   /*
   tutorialSidebar: [
