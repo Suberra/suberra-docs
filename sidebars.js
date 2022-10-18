@@ -15,7 +15,7 @@
 const sidebars = {
   // we do not need the preceding "1_" because docusaurus automatically strips it away
   docs: [
-    "README",
+    "introduction",
     {
       type: "category",
       label: "Overview",
@@ -24,6 +24,7 @@ const sidebars = {
         "overview/suberra_for_merchants",
         "overview/how_suberra_works",
         "overview/use_cases",
+        "overview/features",
       ],
     },
     {
