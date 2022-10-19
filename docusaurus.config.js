@@ -7,9 +7,9 @@ const darkCodeTheme = require("prism-react-renderer/themes/nightOwl");
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Suberra",
-  tagline: "Accept Payments from Anywhere for Anything.",
+  tagline: "Accept Crypto Payments from Anywhere for Anything.",
   url: "https://suberra.github.io",
-  baseUrl: "/suberra-docs/",
+  baseUrl: "/",
   onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",

@@ -8,10 +8,7 @@ export default function QuickNavigation() {
   return (
     <div>
       <div className={styles.container}>
-        <Link
-          className={styles.card}
-          to="/docs/overview/what_is_suberra#features-at-a-glance"
-        >
+        <Link className={styles.card} to="/docs/overview/features">
           <div>
             <Idea className={styles.cardIcon} />
             <h5 className={styles.title}>
