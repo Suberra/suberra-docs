@@ -1,0 +1,123 @@
+---
+title: Subscriber-Only Discord/Telegram
+description: "Subscriber-Only Discord/Telegram"
+---
+
+import Image1 from "@site/static/content/create_guild.png";
+import Image2 from "@site/static/content/select_platform.png";
+import Image3 from "@site/static/content/add_bot.png";
+import Image4 from "@site/static/content/finalise_guild.png";
+import Image5 from "@site/static/content/guildify_role.png";
+import Image6 from "@site/static/content/add_platform.png";
+
+---
+
+## Using Guild.xyz to gate access to your subscriber-only content
+
+Suberra's [Subscription NFT](/docs/2_subscriptions/subscription_nft.mdx) can be used in conjunction with [guild.xyz](https://guild.xyz/) to automate tokenized access/memberships on platforms your community already uses.
+
+Common use cases include:
+
+- **Discord** - "Suscriber-Only" channels in your community discord servers.
+
+- **Telegram** - "Subscriber-Only" access to communtiy telegram channels/groups.
+
+### Getting Started
+
+---
+
+First create your guild on [guild.xyz](https://guild.xyz/).
+
+<div style={{ flexBasis: "300px", flexGrow: "1", textAlign: "center" }}>
+  <img src={Image1} style={{ alignSelf: "center", maxWidth: "70%" }} />
+</div>
+
+<br />
+Next, select a platform you would like to protect access to. You can add on platforms
+later.
+<br />
+<br />
+
+<div style={{ flexBasis: "300px", flexGrow: "1", textAlign: "center" }}>
+  <img src={Image2} style={{ alignSelf: "center", maxWidth: "70%" }} />
+</div>
+
+<br />
+Add guild.xyz's bot to your platforms server/group.
+
+_(Images below use Discord as an example.)_
+
+<div style={{ flexBasis: "300px", flexGrow: "1", textAlign: "center" }}>
+  <img src={Image3} style={{ alignSelf: "center", maxWidth: "70%" }} />
+</div>
+
+<br />
+Follow guild.xyz's instructions for the bot's admin rights, and finally create the
+guild.
+<br />
+<br />
+
+<div style={{ flexBasis: "300px", flexGrow: "1", textAlign: "center" }}>
+  <img src={Image4} style={{ alignSelf: "center", maxWidth: "70%" }} />
+</div>
+
+### Setting up gated access
+
+---
+
+Following your Guild creation, guild.xyz will walk you through adding your first Role to your Guild, customising your Guild, and inviting members. See the guild.xyz docs for making your first guild [here](https://docs.guild.xyz/guild/guides/readme#making-your-first-guild).
+
+:::note
+
+When your users join the Guild, members that satisfy the requirements of a Guild Role (e.g owning an NFT, owning an ERC-20
+Token etc) will be awarded the Role and the access to your Discord servers/channels,
+Telegram groups, etc. that the Role holds.
+
+::::
+
+Next you'll need to define the NFT subscription details for guild.xyz to check your members subscription status, follow these steps:
+
+1. Under 'Requirements' select 'NFT'
+2. Select the chain your subscription product is on (e.g Polygon)
+3. Paste your subscription NFT contract address
+4. Under 'Requirement type' select 'Attribute'
+5. Under 'Custom Attribute' select 'Active'
+6. Under 'Attribute Value' select 'True' (such that expired subscriptions will no longer hold the Role)
+
+**(image of suberra product NFT Requirement)**
+
+:::tip when creating roles
+
+Remember, Roles on guild.xyz are not the same as discord roles! When creating a new Guild Role however, you can choose to **link** it to an existing discord role. Alternatively, the guild.xyz bot can automatically create a new discord role in the server you added it to, that will be tied to that Guild Role.
+
+::::
+
+### Adding multi-platform access to your Roles
+
+---
+
+Add access to multiple different platforms with the same Guild Role by clicking the "Add reward" button when editing the Role.
+
+**This will allow your users to verify their role requirements ONCE, and simultaneously gain access to your gated Discord, Telegram, Google Workspace and Github all together.**
+
+<div style={{ flexBasis: "300px", flexGrow: "1", textAlign: "center" }}>
+  <img src={Image6} style={{ alignSelf: "center", maxWidth: "70%" }} />
+</div>
+
+### Managing Discord roles
+
+---
+
+#### Guildify an existing Discord role
+
+When creating a Guild Role, you can choose whether to allow the guild.xyz bot to create a new Discord role that will be tied to the Guild Role, or you can Guildify an existing role in your Discord server.
+
+:::note
+
+It is recommended to Guildify an existing role, as this allows you to set a preference for the time of removal of the Role from unauthenticated users (expired subscriptions) as seen below.
+
+::::
+
+<div style={{ flexBasis: "300px", flexGrow: "1", textAlign: "center" }}>
+  <img src={Image5} style={{ alignSelf: "center", maxWidth: "50%" }} />
+</div>
