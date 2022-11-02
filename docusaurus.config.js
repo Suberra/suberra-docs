@@ -9,7 +9,7 @@ const config = {
   title: "Suberra",
   tagline: "Accept Crypto Payments from Anywhere for Anything.",
   url: "https://suberra.github.io",
-  baseUrl: "/suberra-docs/",
+  baseUrl: "/",
   onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
@@ -37,7 +37,7 @@ const config = {
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/suberra/suberra-docs",
+          // editUrl: "https://github.com/suberra/suberra-docs",
         },
         blog: false,
         theme: {
