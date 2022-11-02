@@ -8,7 +8,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/nightOwl");
 const config = {
   title: "Suberra",
   tagline: "Accept Crypto Payments from Anywhere for Anything.",
-  url: "https://suberra.github.io",
+  url: "https://docs.suberra.com",
   baseUrl: "/",
   onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
@@ -16,8 +16,8 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "suberra", // Usually your GitHub org/user name.
-  projectName: "suberra-docs", // Usually your repo name.
+  // organizationName: "suberra", // Usually your GitHub org/user name.
+  // projectName: "suberra-docs", // Usually your repo name.
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
@@ -33,8 +33,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          // routerBasePath: "/",
-          sidebarPath: require.resolve("./sidebars.js"),
+          routeBasePath: "/",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           // editUrl: "https://github.com/suberra/suberra-docs",
@@ -56,11 +55,11 @@ const config = {
           alt: "Suberra",
           src: "img/suberra_logo.png",
           srcDark: "img/suberra_logo_dark.png",
-          target: "_self",
+          href: "https://suberra.com",
         },
         items: [
           {
-            to: "/docs",
+            to: "/",
             position: "left",
             label: "Docs",
           },
