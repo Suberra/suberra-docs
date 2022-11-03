@@ -8,7 +8,7 @@ export default function QuickNavigation() {
   return (
     <div>
       <div className={styles.container}>
-        <Link className={styles.card} to="/docs/overview/features">
+        <Link className={styles.card} to="/overview/features">
           <div>
             <Idea className={styles.cardIcon} />
             <h5 className={styles.title}>
@@ -20,14 +20,11 @@ export default function QuickNavigation() {
             needs.
           </p>
 
-          <span
-            className={styles.footer}
-            href="/docs/overview/introduction#features-at-a-glance"
-          >
+          <span className={styles.footer} href="/overview/features">
             Explore Features →
           </span>
         </Link>
-        <Link className={styles.card} to="/docs/integration/getting_started">
+        <Link className={styles.card} to="Integration/getting_started">
           <div>
             <Codefile className={styles.cardIcon} />
             <h5 className={styles.title}>
@@ -39,10 +36,7 @@ export default function QuickNavigation() {
             in a matter of minutes.
           </p>
 
-          <span
-            className={styles.footer}
-            href="/docs/integration/getting_started"
-          >
+          <span className={styles.footer} href="Integration/getting_started">
             Begin Integrating →
           </span>
         </Link>

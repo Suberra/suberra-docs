@@ -35,7 +35,10 @@ const sidebars = {
     {
       type: "category",
       label: "Subscriptions",
-      items: ["subscriptions/subscriptions", "subscriptions/subscription_nft"],
+      items: [
+        "subscriptions/how-subscriptions-work",
+        "subscriptions/subscription_nft",
+      ],
     },
     {
       type: "category",
@@ -54,7 +57,7 @@ const sidebars = {
     {
       type: "category",
       label: "Guides",
-      items: ["guides/subscriber_only"],
+      items: ["Guides/subscriber-only"],
     },
   ],
   // But you can create a sidebar manually
