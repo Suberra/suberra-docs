@@ -87,7 +87,14 @@ const config = {
       },
       footer: {
         style: "light",
-        links: [
+        logo: {
+          alt: "Suberra",
+          src: "img/suberra_logo.png",
+          srcDark: "img/suberra_logo_dark.png",
+          width: 30,
+        },
+        // remove the links for now until we decide what more we want inside
+        /*links: [
           {
             title: "Community",
             items: [
@@ -106,7 +113,7 @@ const config = {
               },
             ],
           },
-        ],
+        ],*/
         copyright: `Copyright © ${new Date().getFullYear()} Suberra. Built with Docusaurus.`,
       },
       prism: {

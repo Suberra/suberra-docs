@@ -20,9 +20,9 @@ const sidebars = {
       type: "category",
       label: "Overview",
       items: [
-        "overview/what_is_suberra",
-        "overview/suberra_for_merchants",
-        "overview/how_suberra_works",
+        "1-what-is-suberra",
+        "overview/suberra-for-merchants",
+        "overview/how-suberra-works",
         "overview/use_cases",
         "overview/features",
       ],
