@@ -23,13 +23,15 @@ const sidebars = {
         "1-what-is-suberra",
         "overview/suberra-for-merchants",
         "overview/how-suberra-works",
-        "overview/use_cases"
+        "overview/use_cases",
       ],
     },
     {
       type: "category",
       label: "Payments",
-      items: ["payments/overview", "payments/payment_link"],
+      items: [
+        "payments/overview",
+      ],
     },
     {
       type: "category",
@@ -43,9 +45,11 @@ const sidebars = {
       type: "category",
       label: "Integration",
       items: [
-        "integration/getting_started",
-        "integration/webhooks",
-        "integration/sdk",
+        "integration/1_getting_started",
+        "integration/2_hosted_checkout",
+        "integration/3_payment_link",
+        "integration/4_webhooks",
+        "integration/5_sdk",
       ],
     },
     {
