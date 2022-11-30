@@ -23,8 +23,7 @@ const sidebars = {
         "1-what-is-suberra",
         "overview/suberra-for-merchants",
         "overview/how-suberra-works",
-        "overview/use_cases",
-        "overview/features",
+        "overview/use_cases"
       ],
     },
     {
