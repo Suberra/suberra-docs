@@ -63,12 +63,16 @@ const config = {
             position: "left",
             label: "Docs",
           },
-          // {
-          //   label: 'Guides',
-          //   position: 'left',
-          //   to: '/guides',
-          //   activeBasePath: '/guides'
-          // },
+          {
+            href: "https://suberra.typeform.com/to/kIIAJN2P?typeform-source=ywsman08ybv.typeform.com",
+            label: "Register Interest",
+            position: "left"
+          },  
+          {
+            href: "https://medium.com/suberra",
+            label: "Blog",
+            position: "right"
+          },
           {
             href: "https://github.com/suberra",
             label: "GitHub",
