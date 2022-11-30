@@ -18,3 +18,13 @@ Here's a brief explanation of what's happening at each step:
 1. The user can click "Crypto", and the webpage will route the user to the payments collection page. Suberra provides a hosted checkout page, so merchants can simply redirect users to that checkout page.
 2. The user will sign two transactions. The first one permits our contract to spend the USDC in their wallet, and the second transaction authorises Suberra to deduct up to a set amount from their wallet.
 3. Once successful, Suberra can trigger success calls. For example, if the user is subscribing to a product and paying monthly, a Subscription NFT can be minted, and a receipt can be sent.
+
+## Push vs Pull Payments
+
+A push payment is a method of payment whereby a payer initiates the sending of money to a payee. The payer is therefore in control of the payment, including the amount and destination. A pull payment meanwhile, is a method of payment whereby the payee instructs the payer to send the money.
+
+Crypto transactions are usually push-based as the payer must manually initiate by signing and broadcasting the payment. However, this is not ideal for user experience as the payment must be made by the payer everytime. In normal payments (e.g. credit cards), transactions are always pull-based as it makes it easier for the payer to pay for an item or service.
+
+Suberra aims to make it easier for consumers to pay by building essential pull-based crypto payments. This means that the user only needs to sign the transaction once, and Suberra will automatically deduct the amount from their wallet when the payment is due.
+
+

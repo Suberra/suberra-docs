@@ -1,0 +1,54 @@
+---
+title: Access Control
+description: "Access Control"
+---
+
+import Image1 from "@site/static/content/subscription_nft_description.png"
+import Image2 from "@site/static/content/access_control.png"
+import Image3 from "@site/static/content/access_control_subscriptions_nft.png"
+
+
+---
+
+For most subscriptions services, projects might want to restrict access to only some paid users. This is where Access Control comes in. Access Control allows you to restrict access to your content based on the user's subscription status.
+
+Suberra can integrate with your existing apps and website. 
+
+Generally, this is how it works.
+<div style={{ flexBasis: "300px", flexGrow: "1", textAlign: "center" }}>
+  <img src={Image2} style={{ alignSelf: "center", maxWidth: "100%" }} />
+</div>
+
+Websites can use their existing membership database or auth services such as Firebase or Supabase to continue enforcing memberships while collecting subscriptions payment using Suberra.
+
+## Subscriptions NFT
+
+Suberra also allows you to create a NFT that represents your subscription. This NFT can be used to prove that the user has a valid subscription. This NFT can be used to access your content or to prove that the user has a valid subscription.
+
+Subscriptions NFT is a new and experimental concept. They differ from most NFTs today as they have a time expiry. The Subscriptions NFT will only be valid for a period of time (e.g. 30 days), and can be extended if some actions are performed (e.g. renew subscriptions). Rules can be written depending on the validity of the NFT, such as giving access to a content only if the user has a valid subscription.
+
+<div style={{ flexBasis: "300px", flexGrow: "1", textAlign: "center" }}>
+  <img src={Image1} style={{ alignSelf: "center", maxWidth: "100%" }} />
+</div>
+
+These are the features of a Subscriptions NFT:
+* Time-expiration
+* Customisable branding of the Subscription Pass
+* Ability to restrict transfers
+* Displayed on popular portfolio managers such as [Nansen](https://portfolio.nansen.ai/), [Zapper](https://zapper.fi) and [Zerion](https://zerion.io)
+* Backward compatibility with any apps that supports ERC-721 standards
+* (Only when tradable) Tradable on [Opensea](https://opensea.io/) and other NFT marketplaces
+
+### Access Control with Subscriptions NFT
+
+By using Subscriptions NFT, the on-chain state will be a replacement for your authentication services. Apps can query the on-chain subscriptions NFT to check if a user have a valid subscriptions to the platform.
+
+<div style={{ flexBasis: "300px", flexGrow: "1", textAlign: "center" }}>
+  <img src={Image3} style={{ alignSelf: "center", maxWidth: "100%" }} />
+</div>
+
+You can use the following to access control via Subscriptions NFT:
+* [Suberra SDK](../integration/sdk)
+* [Guild.xyz](guild.xyz): Connect wtih Discord, Telegram and more platforms
+* Direct Query: Query the blockchain directly given a subscriptions NFT address just like how you would query a ERC-721 token
+
