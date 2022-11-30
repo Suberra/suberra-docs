@@ -8,19 +8,18 @@ export default function QuickNavigation() {
   return (
     <div>
       <div className={styles.container}>
-        <Link className={styles.card} to="/overview/features">
+        <Link className={styles.card} to="/overview/what-is-suberra">
           <div>
             <Idea className={styles.cardIcon} />
             <h5 className={styles.title}>
-              <strong>Find a Solution</strong>
+              <strong>Explore Suberra</strong>
             </h5>
           </div>
           <p>
-            Discover the core features of Suberra that uniquely address your
-            needs.
+            Find out more about what Suberra is and how it works.
           </p>
 
-          <span className={styles.footer} href="/overview/features">
+          <span className={styles.footer} href="/overview/what-is-suberra">
             Explore Features →
           </span>
         </Link>
