@@ -21,9 +21,9 @@ const sidebars = {
       label: "Overview",
       items: [
         "1-what-is-suberra",
-        "overview/suberra-for-merchants",
-        "overview/how-suberra-works",
+        "overview/why_suberra",
         "overview/use_cases",
+        "overview/supported_payments",
       ],
     },
     {
