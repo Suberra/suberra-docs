@@ -24,7 +24,7 @@ Fired when a user subscribes to a plan or undos their cancellation.
     "chain_name": "polygon", // see https://github.com/DefiLlama/chainlist/blob/main/constants/chainIds.js
     "data": {
         "user_address": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174", // EOA address
-	"email": "abc@suberra.io", // User's email address, will be null if doesn't exist 
+	"email": "abc@suberra.com", // User's email address, will be null if doesn't exist 
         "tokenAddress" : "0x2791bca1f2de4661ed88a30c99a7a9449aa84174", // USDC's contract address
         "denom": "usdc",
         "amount" : 10.00 // aka $10 USDC
@@ -43,7 +43,7 @@ Fired when a user subscribes to a plan or undos their cancellation.
   "chain_name": "polygon", // see https://github.com/DefiLlama/chainlist/blob/main/constants/chainIds.js
   "data": {
     "user_address": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
-    "email": "abc@suberra.io",
+    "email": "abc@suberra.com",
     "additional_info": "undo_cancellation"
     // no token information because there was no charge
   }
@@ -65,7 +65,7 @@ Fired when a subscriber is removed.
    "chain_name": "polygon", // see https://github.com/DefiLlama/chainlist/blob/main/constants/chainIds.js
    "data":{
       "user_address":"0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
-      "email": "abc@suberra.io",
+      "email": "abc@suberra.com",
    }
 }
 ```
@@ -85,7 +85,7 @@ Fired when a subscriber unsubscribes on their own accord.
    "chain_name": "polygon", // see https://github.com/DefiLlama/chainlist/blob/main/constants/chainIds.js
    "data":{
       "user_address":"0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
-      "email": "abc@suberra.io",
+      "email": "abc@suberra.com",
    }
 }
 

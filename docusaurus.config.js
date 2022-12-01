@@ -64,7 +64,7 @@ const config = {
             label: "Docs",
           },
           {
-            href: "https://suberra.typeform.com/to/kIIAJN2P?typeform-source=ywsman08ybv.typeform.com",
+            href: "https://suberra.typeform.com/waitlist",
             label: "Register Interest",
             position: "left"
           },  
