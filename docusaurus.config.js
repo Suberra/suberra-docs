@@ -64,18 +64,23 @@ const config = {
             label: "Docs",
           },
           {
-            href: "https://suberra.typeform.com/waitlist",
-            label: "Register Interest",
-            position: "left"
-          },  
+            href: "https://suberra.typeform.com/getstarted",
+            label: "Schedule Call",
+            position: "left",
+          },
           {
             href: "https://medium.com/suberra",
             label: "Blog",
-            position: "right"
+            position: "right",
           },
           {
             href: "https://github.com/suberra",
             label: "GitHub",
+            position: "right",
+          },
+          {
+            href: "https://suberra.notion.site/Suberra-FAQ-f0b7397e19be4773a62fa13ad76d80eb",
+            label: "FAQ",
             position: "right",
           },
           {
