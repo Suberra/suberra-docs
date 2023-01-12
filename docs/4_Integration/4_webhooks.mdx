@@ -3,90 +3,119 @@ title: Webhooks
 description: "Webhooks"
 ---
 
-## What are Webhooks?
-
-Webhooks are a lightweight one-way communication medium for Suberra to inform merchants of actions taken by their subscribers - such as when there is a new subscriber or when there is a lapse in payments.
+## What are webhooks
+[Webhooks](https://en.wikipedia.org/wiki/Webhook) are a lightweight one-way communication medium for Suberra to inform merchants of actions taken by their subscribers - such as when there is a new subscriber or when there is a lapse in payments.
 They allow merchants to handle payment events without having to constantly poll an endpoint.
 
-## Subscriber Lifecycle
+## Using webhooks with Suberra
 
-### New Subscriber
-Fired when a user subscribes to a plan or undos their cancellation.
+Merchants will need to setup an endpoint in the Merchant Dashboard, which will receive the webhook payload. The endpoint will need to be able to handle the payload and respond with a 200 status code. If the endpoint does not respond with a 200 status code, Suberra will retry the request.
 
+## Events
+
+### Overview
+
+| Event | Description |
+| --- | --- |
+|subscription.created	|Fired when a subscription is created|
+|subscription.cancelled	|Fired when a merchant cancels a user's subscription before it's natural end |
+|subscription.ended	|Fired when a user's subscription ends after the plan_cycle_count|
+|subscription.past_due	|Fired when a user's subscription's due_date is past_due and user hasn't paid successfully|
+|subscription.updated	|Sent when the subscription is successfully started, after the payment is confirmed. Also sent whenever a subscription is changed. For example, adding a coupon, applying a discount, adding an invoice item, and changing plans all trigger this event.|
+|invoice.created	|Sent when an invoice is created for a new or renewing subscription.|
+|invoice.paid	|Sent when the invoice is successfully paid. You can provision access to your product when you receive this event and the subscription status is active. If payment is successful the paid attribute is set to true and the status is paid. |
+|invoice.payment_failed	|Sent when a payment fails. If payment fails, paid is set to false and the status remains open. Payment failures also trigger a invoice.payment_failed event.|
+|invoice.upcoming	|Sent a few days prior to the renewal of the subscription. The number of days is based on the number set for Upcoming renewal events in the Dashboard.|
+|subscription.trial_will_end	|Sent a few days before a trial ends. When you receive this event, verify that you have a payment method on the customer so you can bill them. Optionally, notify the customer that they will be charged.|	
+
+### Example Payloads
 ```json
+// Event type: subscription.updated
 {
-    "id": "8d309b28-d8c4-4684-9e80-6056d57e61b6", // UUID
-    "event": "NewSubscriber",
-    "timestamp": 1633513173, // epoch time
-    "txhash": "53a19fb483b17358bea358ffc772b03164be1c44384e4a3ef0cd13568f7a202c",
-    "product_id": "fd56f0d4-66b9-4779-9de0-2874346802b1", // uuid of product in our backend
-    "chain_id": "137", // chainid of evm networks
-    "chain_name": "polygon", // see https://github.com/DefiLlama/chainlist/blob/main/constants/chainIds.js
+    "id": "evt_WC1673507089mjogr1fh5liwh72re1bf",
+    "object": "event",
+    "type": "subscription.updated",
+    "created_at": 1673507089,
     "data": {
-        "user_address": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174", // EOA address
-	"email": "abc@suberra.com", // User's email address, will be null if doesn't exist 
-        "tokenAddress" : "0x2791bca1f2de4661ed88a30c99a7a9449aa84174", // USDC's contract address
-        "denom": "usdc",
-        "amount" : 10.00 // aka $10 USDC
+        "external_id": "sub_WCxarkcnw8n5o7mzqrfaxlf6",
+        "created_at": "2023-01-12T07:04:16.723Z",
+        "updated_at": "2023-01-12T07:04:49.637Z",
+        "status": "ACTIVE",
+        "status_reason": null,
+        "status_updated_at": "2023-01-12T07:04:16.713Z",
+        "plan_cycle_count": 1,
+        "first_charge_amount": null,
+        "interval": "MONTH",
+        "interval_count": 1,
+        "period_start": "2023-01-12T07:04:36.000Z",
+        "period_end": "2023-02-12T07:04:36.000Z",
+        "currency": "USDC",
+        "unit_amount": "9.99",
+        "required_fields_data": {
+            "email": "derrick@suberra.com"
+        },
+        "merchant": {
+            "id": "c3a95462-2614-417c-82c7-abae38475d5d",
+            "name": "WithCrypto.co (Test)",
+            "email": "marcia@suberra.com",
+            "op_code": "WC",
+            "webhook_url": "https://develop.withcrypto.co/api/webhook"
+        },
+        "paymentLink": {
+            "meta_data": {},
+            "lookup_code": "WC58ua3t1673283938651",
+            "currency": "USDC",
+            "unit_amount": "9.99",
+            "description": "Crunchyroll Premium Fan Membership (1-month)",
+            "link_ttl": null,
+            "multiple_use": true,
+            "purchasable_quantity": null,
+            "payment_type": "SUBSCRIPTION",
+            "created_at": "2023-01-09T17:05:38.657Z",
+            "updated_at": "2023-01-12T07:04:21.019Z",
+            "expired_at": null,
+            "status": "ACTIVE",
+            "link_active_at": null,
+            "first_charge_amount": null,
+            "end_after_plan_cycle_count": null,
+            "plan": {
+                "interval": "MONTH",
+                "interval_count": 1
+            },
+            "is_unique_address_purchase": false
+        },
+        "invoice": [
+        // Only contains the latest invoice that was created for this subscription
+            {
+                "external_id": "in_WCyogycycs1lc69xlfr94yv8",
+                "meta_data": null,
+                "status": "PAID",
+                "status_reason": null,
+                "due_at": "2023-01-12T07:04:16.773Z",
+                "paid_at": "2023-01-12T07:04:49.616Z",
+                "created_at": "2023-01-12T07:04:16.778Z",
+                "tx_hash": "0x272b8c5845fa827d50099eae99d83521bd6be68a3dbe804d943e6f293b506eac",
+                "user_address": "0x3EB998d305A5fCf6B2b6CB01264e2c050Aea4672",
+                "chain_id": "5",
+                "network": "goerli"
+            }
+        ],
+        "product": [
+            {
+                "external_id": "prod_WC57p5jyh3cf2rijtm8tfwvn",
+                "name": "Crunchyroll Premium Fan Membership (1-month)",
+                "chain_id": "5",
+                "contract_address": null,
+                "description": null,
+                "currency": "USDC",
+                "price": "9.99",
+                "required_fields": [
+                    "email"
+                ],
+                "created_at": "2023-01-09T17:04:21.740Z",
+                "updated_at": "2023-01-09T17:04:21.740Z"
+            }
+        ]
     }
 }
-
-// re-subscribes aka undo cancellation 
-{
-  "id": "8d309b28-d8c4-4684-9e80-6056d57e61b6",
-  "event": "NewSubscriber",
-  "timestamp": 1643908174245,
-  "txhash": "53a19fb483b17358bea358ffc772b03164be1c44384e4a3ef0cd13568f7a202c",
-  "subscription_contract": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",  // Your NFT Subscription Contract address
-  "product_id": "fd56f0d4-66b9-4779-9de0-2874346802b1", //uuid of product in our backend
-  "chain_id": "137", // chainid of evm networks
-  "chain_name": "polygon", // see https://github.com/DefiLlama/chainlist/blob/main/constants/chainIds.js
-  "data": {
-    "user_address": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
-    "email": "abc@suberra.com",
-    "additional_info": "undo_cancellation"
-    // no token information because there was no charge
-  }
-}
-```
-
-### SubscriberRemoved
-
-Fired when a subscriber is removed.
-
-```json
-{
-   "id":"8d309b28-d8c4-4684-9e80-6056d57e61b6",
-   "event":"SubscriberRemoved",
-   "timestamp":1633513173,
-   "txhash": "53a19fb483b17358bea358ffc772b03164be1c44384e4a3ef0cd13568f7a202c",
-   "product_id": "fd56f0d4-66b9-4779-9de0-2874346802b1", // uuid of product in our backend
-   "chain_id": "137", // chainid of evm networks
-   "chain_name": "polygon", // see https://github.com/DefiLlama/chainlist/blob/main/constants/chainIds.js
-   "data":{
-      "user_address":"0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
-      "email": "abc@suberra.com",
-   }
-}
-```
-
-### SubscriberCancelled
-
-Fired when a subscriber unsubscribes on their own accord.
-
-```json
-{
-   "id":"8d309b28-d8c4-4684-9e80-6056d57e61b6",
-   "event":"SubscriberCancelled",
-   "timestamp":1633513173,
-   "txhash":"53a19fb483b17358bea358ffc772b03164be1c44384e4a3ef0cd13568f7a202c",
-   "product_id": "fd56f0d4-66b9-4779-9de0-2874346802b1", // uuid of product in our backend
-   "chain_id": "137", // chainid of evm networks
-   "chain_name": "polygon", // see https://github.com/DefiLlama/chainlist/blob/main/constants/chainIds.js
-   "data":{
-      "user_address":"0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
-      "email": "abc@suberra.com",
-   }
-}
-
 ```
