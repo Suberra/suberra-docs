@@ -17,16 +17,15 @@ Merchants will need to setup an endpoint in the Merchant Dashboard, which will r
 
 | Event | Description |
 | --- | --- |
-|subscription.created	|Fired when a subscription is created|
-|subscription.cancelled	|Fired when a merchant cancels a user's subscription before it's natural end |
-|subscription.ended	|Fired when a user's subscription ends after the plan_cycle_count|
-|subscription.past_due	|Fired when a user's subscription's due_date is past_due and user hasn't paid successfully|
-|subscription.updated	|Sent when the subscription is successfully started, after the payment is confirmed. Also sent whenever a subscription is changed. For example, adding a coupon, applying a discount, adding an invoice item, and changing plans all trigger this event.|
-|invoice.created	|Sent when an invoice is created for a new or renewing subscription.|
-|invoice.paid	|Sent when the invoice is successfully paid. You can provision access to your product when you receive this event and the subscription status is active. If payment is successful the paid attribute is set to true and the status is paid. |
-|invoice.payment_failed	|Sent when a payment fails. If payment fails, paid is set to false and the status remains open. Payment failures also trigger a invoice.payment_failed event.|
-|invoice.upcoming	|Sent a few days prior to the renewal of the subscription. The number of days is based on the number set for Upcoming renewal events in the Dashboard.|
-|subscription.trial_will_end	|Sent a few days before a trial ends. When you receive this event, verify that you have a payment method on the customer so you can bill them. Optionally, notify the customer that they will be charged.|	
+|```subscription.created```	|Fired when a subscription is created|
+|```subscription.ended```	|Fired when a user's subscription ends|
+|```subscription.past_due```	|Fired when a user's subscription's ```due_date``` is past_due and user hasn't paid successfully|
+|```subscription.updated```	|Sent when the subscription is successfully started, after the payment is confirmed. Also sent whenever a subscription is changed. For example, adding a coupon, applying a discount, adding an invoice item, and changing plans all trigger this event.|
+|```invoice.created```	|Sent when an invoice is created for a new or renewing subscription.|
+|```invoice.paid```	|Sent when the invoice is successfully paid. You can provision access to your product when you receive this event and the subscription status is active. If payment is successful the paid attribute is set to true and the status is paid. |
+|```invoice.payment_failed```	|Sent when a payment fails. If payment fails, paid is set to false and the status remains open. Payment failures also trigger a ```invoice.payment_failed``` event.|
+|```invoice.upcoming```	|Sent a few days prior to the renewal of the subscription. The number of days is based on the number set for Upcoming renewal events in the Dashboard.|
+|```subscription.trial_will_end```	|Sent a few days before a trial ends. When you receive this event, verify that you have a payment method on the customer so you can bill them. Optionally, notify the customer that they will be charged.|	
 
 ### Example Payloads
 ```json
