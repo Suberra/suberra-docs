@@ -1,0 +1,56 @@
+---
+title: Bridge funds for payments
+description: "Learn how to bridge funds from other chains to use Suberra"
+---
+
+import Image1 from "@site/static/content/bridge_1.png";
+import Image2 from "@site/static/content/bridge_2.png";
+import Image3 from "@site/static/content/bridge_3.png";
+import Image4 from "@site/static/content/bridge_4.png";
+
+---
+
+If you do not have USDC on one of the supported networks, here's how you can bridge your funds across from other chains. Bridge feature is only available for Suberra's hosted checkout page on production networks.
+
+Bridging is powered by [socket.tech](https://socket.tech/) and it gives you the best possible rates by aggregating different bridges (e.g. Stargate, Hop, Hyphen) and exchange aggregators such as [1inch](https://app.1inch.io/). For information about the bridges and aggregators, please refer to [here](https://docs.socket.tech/socket-liquidity-layer/socketll-overview/chains-dexs-bridges).
+
+On the product checkout page, you can swap tokens into USDC or even bridge them from other chains. In the guide below, we will show you how to bridge and swap ETH from Ethereum chain into USDC on Arbitrum.
+
+First, click on the "here" button to open up the bridge and swap widget on the Checkout page.
+
+<div style={{ flexBasis: "300px", flexGrow: "1", textAlign: "center" }}>
+  <img src={Image1} style={{ alignSelf: "center", maxWidth: "100%" }} />
+</div>
+
+Second, select which network and token you want to bridge from. In this case, we are bridging ETH from Ethereum mainnet into Arbitrum. Press "Review Quote" to proceed.
+
+<div style={{ flexBasis: "300px", flexGrow: "1", textAlign: "center" }}>
+  <img src={Image2} style={{ alignSelf: "center", maxWidth: "50%" }} />
+</div>
+
+On this screen, you will verify the final amount that you are bridging and get an estimation on the fees and time taken to bridge the transaction.
+
+:::tip
+
+The time and fees that it cost differs depending on the network. It could take between 2 mins to 15 mins depending on the confirmation times of the network.
+Transactions from Arbitrum / Ethereum could take lesser than 5 mins, while transactions from Polygon may take up to 20 mins.
+
+::::
+
+<div style={{ flexBasis: "300px", flexGrow: "1", textAlign: "center" }}>
+  <img src={Image3} style={{ alignSelf: "center", maxWidth: "50%" }} />
+</div>
+
+You can also checkout the exact bridge and swap path. In this case, we are bridging ETH from Ethereum mainnet into Arbitrum. In this case, we are first bridging ETH from Ethereum into Arbitrum. Then we will swap ETH for USDC on Arbitrum network.
+
+<div style={{ flexBasis: "300px", flexGrow: "1", textAlign: "center" }}>
+  <img src={Image4} style={{ alignSelf: "center", maxWidth: "50%" }} />
+</div>
+
+Once you are happy with the quote, press "Bridge" to proceed. You will be prompted to sign the transaction on your wallet. Once the transaction is confirmed, you will be able to see the bridged funds in your wallet.
+
+:::note
+
+If you see a token or network that is not supported, please reach out to Socket [support](https://socketdottech.zendesk.com/hc/en-us).
+
+::::
