@@ -1,0 +1,60 @@
+---
+title: Spending Limits
+description: "Spending Limits"
+---
+
+import Image1 from "@site/static/content/funnel_overview.png";
+import Image2 from "@site/static/content/periodic_allowance.png";
+
+---
+
+To make it safer for consumers to make payments online, Suberra introduces spending limits on ERC20 tokens to make transactions safer. A user can set a limit on the amount of money they can spend in a day, week, or month. This limit can be changed at any time. If a user tries to make a payment that would exceed their spending limit, the payment will be declined.
+
+<div style={{ flexBasis: "300px", flexGrow: "1", textAlign: "center" }}>
+  <img src={Image2} style={{ alignSelf: "center", maxWidth: "70%" }} />
+</div>
+
+## Why Spending Limit?
+
+### The Problem
+
+For recurring subscriptions to work, the application will require the payer to provide permission to pull funds out of your account to send to a receiver. However, ERC20 tokens only have a function where you can set a pre-defined limit (e.g. $100) and does not renew with time.
+
+Let's say that you are trying to subscribe to a product that cost 100 USDC per month. The application can either ask for a modest amount of approval, say 500 USDC, and they can pull money out for five months. But after five months, all the allowances would have been depleted and the dApp would have to ask for more permissions again.
+
+Other dApps would attempt to ask for an extremely large amount of approvals - say 1,000,000 USDC, and have their backend to pull funds as and when they like. However, this is not safe for users as there are very little safeguards to protect the users' funds.
+
+### Our Solution: Renewable Allowances (EIP-5827)
+
+We have proposed a standard to make reucrring payments safer for users. Link to EIP: https://eips.ethereum.org/EIPS/eip-5827.
+
+Users would still have to grant permission to this contract, but the ability to draw funds out of the user's account is subjected to a spending limit of say 50 USDC per month. This spending limit have to be set by the user, and it is an additional level of control that is much better than the current market alternatives.
+
+The limit resets itself every time interval, and no additional actions are required from both the payer and the merchant.
+
+# Funnel Contracts
+
+<div style={{ flexBasis: "300px", flexGrow: "1", textAlign: "center" }}>
+  <img src={Image1} style={{ alignSelf: "center", maxWidth: "100%" }} />
+</div>
+
+Funnels are contracts that enforces renewable token allowances EIP-5827 on existing ERC20 tokens, they help rate-limit the amount of tokens that can be transferred in a given time period.
+
+Each funnel contract is a proxy/wrapper for an underlying ERC20 token, funneling a large unlimited allowance to a limited allowance that regains over time. For example, USDC will have its own funnel contract proxy, while another token like WETH will have its own funnel contract.
+
+We have developed the funnel contracts and it is undergoing contract audits at the moment. Once the audits are completed, we will deploy a few funnel contracts on mainnet that any developer can use.
+
+You can view the implementation contracts here: https://github.com/suberra/funnel-contracts
+
+# Deployment addresses
+
+| Network   | Contract      | Address                                    | Version     |
+| --------- | ------------- | ------------------------------------------ | ----------- |
+| Goerli    | Funnel (impl) | 0xb2acc9a328039e2918b2d85420251fb831ce47e0 | 0.2.0-alpha |
+| Goerli    | FunnelFactory | 0x92324acad3946f0600d7e0e2641ef10d1655d89d | 0.2.0-alpha |
+| Polygon   | Funnel (impl) | 0xb2acc9a328039e2918b2d85420251fb831ce47e0 | 0.2.0-alpha |
+| Polygon   | FunnelFactory | 0x92324acad3946f0600d7e0e2641ef10d1655d89d | 0.2.0-alpha |
+| Avalanche | Funnel (impl) | 0xb2acc9a328039e2918b2d85420251fb831ce47e0 | 0.2.0-alpha |
+| Avalanche | FunnelFactory | 0x92324acad3946f0600d7e0e2641ef10d1655d89d | 0.2.0-alpha |
+| Arbitrum  | Funnel (impl) | 0xb2acc9a328039e2918b2d85420251fb831ce47e0 | 0.2.0-alpha |
+| Arbitrum  | FunnelFactory | 0x92324acad3946f0600d7e0e2641ef10d1655d89d | 0.2.0-alpha |
