@@ -18,10 +18,11 @@ Merchants will need to setup an endpoint in the Merchant Dashboard, which will r
 | Event | Description |
 | --- | --- |
 |subscription.created	|Fired when a subscription is created|
+|subscription.renewed	|Sent when the subscription is successfully renewed, after the payment is confirmed.|
 |subscription.cancelled	|Fired when a merchant cancels a user's subscription before it's natural end |
 |subscription.ended	|Fired when a user's subscription ends after the plan_cycle_count|
 |subscription.past_due	|Fired when a user's subscription's due_date is past_due and user hasn't paid successfully|
-|subscription.updated	|Sent when the subscription is successfully started, after the payment is confirmed. Also sent whenever a subscription is changed. For example, adding a coupon, applying a discount, adding an invoice item, and changing plans all trigger this event.|
+|charge.failed	|Sent when an charge attempt failed for dued subscription.|
 |invoice.created	|Sent when an invoice is created for a new or renewing subscription.|
 |invoice.paid	|Sent when the invoice is successfully paid. You can provision access to your product when you receive this event and the subscription status is active. If payment is successful the paid attribute is set to true and the status is paid. |
 |invoice.payment_failed	|Sent when a payment fails. If payment fails, paid is set to false and the status remains open. Payment failures also trigger a invoice.payment_failed event.|
@@ -34,7 +35,7 @@ Merchants will need to setup an endpoint in the Merchant Dashboard, which will r
 {
     "id": "evt_WC1673507089mjogr1fh5liwh72re1bf",
     "object": "event",
-    "type": "subscription.updated",
+    "type": "subscription.renewed",
     "created_at": 1673507089,
     "data": {
         "external_id": "sub_WCxarkcnw8n5o7mzqrfaxlf6",
