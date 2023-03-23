@@ -31,92 +31,75 @@ Merchants will need to setup an endpoint in the Merchant Dashboard, which will r
 
 ### Example Payloads
 ```json
-// Event type: subscription.updated
+// Event type: subscription.created
 {
-    "id": "evt_WC1673507089mjogr1fh5liwh72re1bf",
-    "object": "event",
-    "type": "subscription.renewed",
-    "created_at": 1673507089,
-    "data": {
-        "external_id": "sub_WCxarkcnw8n5o7mzqrfaxlf6",
-        "created_at": "2023-01-12T07:04:16.723Z",
-        "updated_at": "2023-01-12T07:04:49.637Z",
-        "status": "ACTIVE",
-        "status_reason": null,
-        "status_updated_at": "2023-01-12T07:04:16.713Z",
-        "plan_cycle_count": 1,
-        "first_charge_amount": null,
+  "id": "evt_OGhbf368nz6d02rq9f5oqtsyrjwy9h7e",
+  "external_id": "evt_OGhbf368nz6d02rq9f5oqtsyrjwy9h7e",
+  "type": "subscription.created",
+  "version": "0.1.0",
+  "data": {
+    "id": "sub_OGoqlsuu78k9qfauy5q46m3lmfo9",
+    "status": "ACTIVE",
+    "status_reason": null,
+    "period_start": "2023-03-20T13:55:48.000Z",
+    "period_end": "2023-04-20T13:55:48.000Z",
+    "currency": "USDC",
+    "unit_amount": "20.96",
+    "updated_at": "2023-03-20T13:56:02.839Z",
+    "status_updated_at": "2023-03-20T13:56:02.839Z",
+    "interval": "MONTH",
+    "interval_count": 1,
+    "plan_cycle_count": 1,
+    "first_charge_amount": null,
+    "required_fields_data": {
+      "email": "derrick@suberra.com"
+    },
+    "trial_used": false,
+    "merchant": {
+      "id": "70042028-447a-4564-a33b-4337f2fca097",
+      "name": "Sample Shop",
+      "email": "derrick@suberra.com",
+      "op_code": "OG",
+      "webhook_url": "https://webhook.site/299f5618-3685-4ad0-8db0-0213af834d6b"
+    },
+    "paymentLink": {
+      "plan": {
         "interval": "MONTH",
-        "interval_count": 1,
-        "period_start": "2023-01-12T07:04:36.000Z",
-        "period_end": "2023-02-12T07:04:36.000Z",
-        "currency": "USDC",
-        "unit_amount": "9.99",
-        "required_fields_data": {
-            "email": "derrick@suberra.com"
-        },
-        "merchant": {
-            "id": "c3a95462-2614-417c-82c7-abae38475d5d",
-            "name": "WithCrypto.co (Test)",
-            "email": "marcia@suberra.com",
-            "op_code": "WC",
-            "webhook_url": "https://develop.withcrypto.co/api/webhook"
-        },
-        "paymentLink": {
-            "meta_data": {},
-            "lookup_code": "WC58ua3t1673283938651",
-            "currency": "USDC",
-            "unit_amount": "9.99",
-            "description": "Crunchyroll Premium Fan Membership (1-month)",
-            "link_ttl": null,
-            "multiple_use": true,
-            "purchasable_quantity": null,
-            "payment_type": "SUBSCRIPTION",
-            "created_at": "2023-01-09T17:05:38.657Z",
-            "updated_at": "2023-01-12T07:04:21.019Z",
-            "expired_at": null,
-            "status": "ACTIVE",
-            "link_active_at": null,
-            "first_charge_amount": null,
-            "end_after_plan_cycle_count": null,
-            "plan": {
-                "interval": "MONTH",
-                "interval_count": 1
-            },
-            "is_unique_address_purchase": false
-        },
-        "invoice": [
-        // Only contains the latest invoice that was created for this subscription
-            {
-                "external_id": "in_WCyogycycs1lc69xlfr94yv8",
-                "meta_data": null,
-                "status": "PAID",
-                "status_reason": null,
-                "due_at": "2023-01-12T07:04:16.773Z",
-                "paid_at": "2023-01-12T07:04:49.616Z",
-                "created_at": "2023-01-12T07:04:16.778Z",
-                "tx_hash": "0x272b8c5845fa827d50099eae99d83521bd6be68a3dbe804d943e6f293b506eac",
-                "user_address": "0x3EB998d305A5fCf6B2b6CB01264e2c050Aea4672",
-                "chain_id": "5",
-                "network": "goerli"
-            }
-        ],
-        "product": [
-            {
-                "external_id": "prod_WC57p5jyh3cf2rijtm8tfwvn",
-                "name": "Crunchyroll Premium Fan Membership (1-month)",
-                "chain_id": "5",
-                "contract_address": null,
-                "description": null,
-                "currency": "USDC",
-                "price": "9.99",
-                "required_fields": [
-                    "email"
-                ],
-                "created_at": "2023-01-09T17:04:21.740Z",
-                "updated_at": "2023-01-09T17:04:21.740Z"
-            }
-        ]
-    }
+        "interval_count": 1
+      },
+      "status": "ACTIVE",
+      "currency": "USDC",
+      "link_ttl": null,
+      "meta_data": {},
+      "expired_at": null,
+      "description": "test description payment link 1",
+      "lookup_code": "OGepaome1674635975393",
+      "unit_amount": "20.96",
+      "multiple_use": true,
+      "payment_type": "SUBSCRIPTION",
+      "link_active_at": null,
+      "first_charge_amount": null,
+      "purchasable_quantity": 6,
+      "end_after_plan_cycle_count": null,
+      "is_unique_address_purchase": false
+    },
+    "invoice": {
+      "due_at": "2023-03-20T13:55:36.010Z",
+      "status": "PAID",
+      "paid_at": "2023-03-20T13:55:48.000Z",
+      "charge_attempts": null,
+      "tx_hash": "0x148ed2b4d03bb31659319b36e269ce6604625de428c3492d6d4e9d360e88e250",
+      "chain_id": "5",
+      "unit_amount": "20.96",
+      "currency": "USDC",
+      "meta_data": null,
+      "id": "in_OGcx5kpu0wbcns903ez4zbmpi55cg",
+      "user_address": "0x5784fcba008f2fe4a17ad3b291ead907f7450c9a",
+      "status_reason": null,
+      "is_trial_payment": false,
+      "network": "goerli"
+    },
+    "is_trial": false
+  }
 }
 ```
