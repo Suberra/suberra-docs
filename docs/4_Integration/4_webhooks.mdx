@@ -29,6 +29,97 @@ Merchants will need to setup an endpoint in the Merchant Dashboard, which will r
 
 #### Recurring payment
 
+New subscriber:
+
+```json
+{
+  "id": "evt_OGpi7xz7f134fvalhhoha12qmnpb87ae",
+  "external_id": "evt_OGpi7xz7f134fvalhhoha12qmnpb87ae",
+  "type": "subscription.created",
+  "version": "0.1.0",
+  "data": {
+    "id": "sub_OGsiik5mfuzte6d04gb46dtfm2y7",
+    "status": "ACTIVE",
+    "status_reason": null,
+    "period_start": "2023-04-12T05:53:13.000Z",
+    "period_end": "2023-04-13T05:53:13.000Z",
+    "currency": "USDC",
+    "unit_amount": "0.1",
+    "updated_at": "2023-04-12T05:53:28.998Z",
+    "status_updated_at": "2023-04-12T05:53:28.998Z",
+    "interval": "DAY",
+    "interval_count": 1,
+    "plan_cycle_count": 1,
+    "first_charge_amount": null,
+    "required_fields_data": {
+      "email": "john@suberra.com"
+    },
+    "trial_used": false,
+    "invoice": {
+      "due_at": "2023-04-12T05:53:09.750Z",
+      "status": "PAID",
+      "paid_at": "2023-04-12T05:53:13.000Z",
+      "charge_attempts": null,
+      "tx_hash": "0x20f9f6a280f5bc99a358bf659f7951a7c5fac952ec8536cca2a43efc3ad703b6",
+      "chain_id": "42161",
+      "unit_amount": "0.1",
+      "currency": "USDC",
+      "meta_data": null,
+      "id": "in_OGfjayky6gcv53jsn01xb26kaq2qg",
+      "user_address": "0x7f9c5d92a0722293157427019658fc648436e6f0",
+      "status_reason": null,
+      "is_trial_payment": false,
+      "required_fields_data": {
+        "email": "john@suberra.com"
+      },
+      "network": "arbitrum_one"
+    },
+    "paymentLink": {
+      "plan": {
+        "interval": "DAY",
+        "interval_count": 1
+      },
+      "status": "ACTIVE",
+      "currency": "USDC",
+      "link_ttl": null,
+      "meta_data": {},
+      "expired_at": null,
+      "description": "Latest alpha straight to your inbox!",
+      "lookup_code": "OGjiv3eh1678833388281",
+      "unit_amount": "0.1",
+      "multiple_use": true,
+      "payment_type": "SUBSCRIPTION",
+      "link_active_at": null,
+      "first_charge_amount": null,
+      "purchasable_quantity": null,
+      "end_after_plan_cycle_count": null,
+      "is_unique_address_purchase": false,
+      "trial_plan": null,
+      "products": [
+        {
+          "id": "prod_OGp2cyzjrvdvj8ibwuqnfjz4",
+          "name": "Alpha Daily Insights",
+          "description": "Latest alpha straight to your inbox!",
+          "currency": "USDC",
+          "price": "0.1",
+          "required_fields": ["email"]
+        }
+      ]
+    },
+    "merchant": {
+      "id": "485cf97d-d6b5-498f-917e-9893dc806dd7",
+      "name": "Suberra Merch Shop",
+      "email": "shop@suberra.com",
+      "op_code": "OG",
+      "webhook_url": "https://api.suberra.com/webhook/114f1a9e-d5a8-43b7-a50f-d5bb1c9403bf"
+    },
+    "is_trial": false
+  }
+}
+```
+
+On subscription renewal:
+
 ```json
 {
   "id": "evt_OGqiwxcc77mxoug3llrmo6lo65h98vrg",
@@ -91,7 +182,7 @@ Merchants will need to setup an endpoint in the Merchant Dashboard, which will r
       "status": "PAID",
       "paid_at": "2023-03-31T05:00:11.000Z",
       "charge_attempts": 3,
-      "tx_hash": "0x997279158e7fa881c3402f8a9b3e4079a226dc10cbc0697b2e379aa6a3c464ac",
+      "tx_hash": "0x997279158e7fa881c3402f8a9b3e4079a226dc10cbc0697b2e379aa6a3c474ac",
       "chain_id": "42161",
       "unit_amount": "0.1",
       "currency": "USDC",
@@ -107,6 +198,8 @@ Merchants will need to setup an endpoint in the Merchant Dashboard, which will r
 ```
 
 #### One-time payment
+
+When a product is purchased:
 
 ```json
 {
