@@ -31,88 +31,77 @@ Merchants will need to setup an endpoint in the Merchant Dashboard, which will r
 
 ```json
 {
-  "id": "evt_WC1673507089mjogr1fh5liwh72re1bf",
-  "object": "event",
+  "id": "evt_OGqiwxcc77mxoug3llrmo6lo65h98vrg",
+  "external_id": "evt_OGqiwxcc77mxoug3llrmo6lo65h98vrg",
   "type": "subscription.renewed",
-  "created_at": 1673507089,
+  "version": "0.1.0",
   "data": {
-    "external_id": "sub_WCxarkcnw8n5o7mzqrfaxlf6",
-    "created_at": "2023-01-12T07:04:16.723Z",
-    "updated_at": "2023-01-12T07:04:49.637Z",
+    "id": "sub_OGwomzzbi1hgdkst215xrbawgho4",
     "status": "ACTIVE",
     "status_reason": null,
-    "status_updated_at": "2023-01-12T07:04:16.713Z",
-    "plan_cycle_count": 1,
-    "first_charge_amount": null,
-    "interval": "MONTH",
-    "interval_count": 1,
-    "period_start": "2023-01-12T07:04:36.000Z",
-    "period_end": "2023-02-12T07:04:36.000Z",
+    "period_start": "2023-03-29T04:28:50.000Z",
+    "period_end": "2023-03-30T04:28:50.000Z",
     "currency": "USDC",
-    "unit_amount": "9.99",
-    "required_fields_data": {
-      "email": "derrick@suberra.com"
-    },
+    "unit_amount": "0.1",
+    "updated_at": "2023-03-31T05:00:34.494Z",
+    "status_updated_at": "2023-03-31T05:00:34.494Z",
+    "interval": "DAY",
+    "interval_count": 1,
+    "plan_cycle_count": 7,
+    "first_charge_amount": null,
+    "required_fields_data": { "email": "john@suberra.com" },
+    "trial_used": false,
     "merchant": {
-      "id": "c3a95462-2614-417c-82c7-abae38475d5d",
-      "name": "WithCrypto.co (Test)",
-      "email": "marcia@suberra.com",
-      "op_code": "WC",
-      "webhook_url": "https://develop.withcrypto.co/api/webhook"
+      "id": "485cf97d-d6b5-498f-917e-9893dc806dd7",
+      "name": "Suberra Merch Shop",
+      "email": "shop@suberra.com",
+      "op_code": "OG",
+      "webhook_url": "https://api.suberra.com/webhook/114f1a9e-d5a8-43b7-a50f-d5bb1c9403bf"
     },
     "paymentLink": {
-      "meta_data": {},
-      "lookup_code": "WC58ua3t1673283938651",
-      "currency": "USDC",
-      "unit_amount": "9.99",
-      "description": "Crunchyroll Premium Fan Membership (1-month)",
-      "link_ttl": null,
-      "multiple_use": true,
-      "purchasable_quantity": null,
-      "payment_type": "SUBSCRIPTION",
-      "created_at": "2023-01-09T17:05:38.657Z",
-      "updated_at": "2023-01-12T07:04:21.019Z",
-      "expired_at": null,
+      "plan": { "interval": "DAY", "interval_count": 1 },
       "status": "ACTIVE",
+      "currency": "USDC",
+      "link_ttl": null,
+      "meta_data": {},
+      "expired_at": null,
+      "description": "Latest alpha straight to your inbox!",
+      "lookup_code": "OGjiv6eh1278433388287",
+      "unit_amount": "0.1",
+      "multiple_use": true,
+      "payment_type": "SUBSCRIPTION",
       "link_active_at": null,
       "first_charge_amount": null,
+      "purchasable_quantity": null,
       "end_after_plan_cycle_count": null,
-      "plan": {
-        "interval": "MONTH",
-        "interval_count": 1
-      },
-      "is_unique_address_purchase": false
+      "is_unique_address_purchase": false,
+      "products": [
+        {
+          "id": "prod_OGp2cyzjrvdvj8ibwuqnfjz4",
+          "name": "Market Daily Insights",
+          "description": "Latest alpha straight to your inbox!",
+          "currency": "USDC",
+          "price": "0.1",
+          "required_fields": ["email"]
+        }
+      ]
     },
-    "invoice": [
-      // Only contains the latest invoice that was created for this subscription
-      {
-        "external_id": "in_WCyogycycs1lc69xlfr94yv8",
-        "meta_data": null,
-        "status": "PAID",
-        "status_reason": null,
-        "due_at": "2023-01-12T07:04:16.773Z",
-        "paid_at": "2023-01-12T07:04:49.616Z",
-        "created_at": "2023-01-12T07:04:16.778Z",
-        "tx_hash": "0x272b8c5845fa827d50099eae99d83521bd6be68a3dbe804d943e6f293b506eac",
-        "user_address": "0x3EB998d305A5fCf6B2b6CB01264e2c050Aea4672",
-        "chain_id": "5",
-        "network": "goerli"
-      }
-    ],
-    "product": [
-      {
-        "external_id": "prod_WC57p5jyh3cf2rijtm8tfwvn",
-        "name": "Crunchyroll Premium Fan Membership (1-month)",
-        "chain_id": "5",
-        "contract_address": null,
-        "description": null,
-        "currency": "USDC",
-        "price": "9.99",
-        "required_fields": ["email"],
-        "created_at": "2023-01-09T17:04:21.740Z",
-        "updated_at": "2023-01-09T17:04:21.740Z"
-      }
-    ]
+    "invoice": {
+      "due_at": "2023-03-31T05:00:19.778Z",
+      "status": "PAID",
+      "paid_at": "2023-03-31T05:00:11.000Z",
+      "charge_attempts": 3,
+      "tx_hash": "0x997279158e7fa881c3402f8a9b3e4079a226dc10cbc0697b2e379aa6a3c464ac",
+      "chain_id": "42161",
+      "unit_amount": "0.1",
+      "currency": "USDC",
+      "meta_data": null,
+      "id": "in_OGtvphlaz6m8f6j40c4sn5vf9dp3f",
+      "user_address": "0xbf48e3c04478c9fbe516a431c8866dc6908277e2",
+      "status_reason": null,
+      "is_trial_payment": false,
+      "network": "arbitrum_one"
+    }
   }
 }
 ```
@@ -145,11 +134,11 @@ Merchants will need to setup an endpoint in the Merchant Dashboard, which will r
     },
     "network": "polygon",
     "merchant": {
-      "id": "485cf97d-d6b5-498f-918e-9893dc816dd6",
-      "name": "Sample Shop",
-      "email": "sales@example.com",
+      "id": "485cf97d-d6b5-498f-917e-9893dc806dd7",
+      "name": "Suberra Merch Shop",
+      "email": "shop@suberra.com",
       "op_code": "OG",
-      "webhook_url": "https://example.com/114f1a9e-d5a8-43b7-a50f-d5bb1c9403bf"
+      "webhook_url": "https://api.suberra.com/webhook/114f1a9e-d5a8-43b7-a50f-d5bb1c9403bf"
     },
     "paymentLink": {
       "plan": null,
